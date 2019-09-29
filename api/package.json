@@ -7,5 +7,13 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "@ChanceHalo Chance Embrey-Farquhar",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "helmet": "^3.21.1",
+    "knex": "^0.19.4",
+    "morgan": "^1.9.1",
+    "pg": "^7.12.1"
+  }
 }
