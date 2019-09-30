@@ -1,7 +1,7 @@
 <div class="container">
     <div class="logo">Login</div>
     <div class="login-item">
-      <form #myform="ngForm" (ngSubmit)="login(myform)" class="form form-login">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form form-login">
         <div class="form-field">
           <label class="user" for="login-username"><span class="hidden">username</span></label>
           <input name="username" id="login-username" type="username" class="form-input" placeholder="Username" required ngModel>

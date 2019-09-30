@@ -33,6 +33,6 @@ export class AuthService {
   }
 
   isAuthenticated() {
-    return this.authSubject.asObservable();
+    return localStorage.getItem('TOKEN') !== null;
   }
 }

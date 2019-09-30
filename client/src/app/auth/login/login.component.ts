@@ -1,23 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
-import { User } from '../user';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
   constructor(private authService: AuthService, private router: Router) {}
 
-  ngOnInit() {}
+  loginForm: FormGroup;
+  subscription: Subscription;
 
-  login(form) {
-    console.log(form.value);
-    this.authService.logIn(form.value).subscribe(res => {
-      console.log('Logged in!');
-      this.router.navigateByUrl('home');
+  onSubmit(): void {
+    this.subscription = this.authService
+      .logIn(this.loginForm.value)
+      .subscribe(res => {
+        this.router.navigateByUrl('/home');
+      });
+  }
+
+  ngOnInit() {
+    this.loginForm = new FormGroup({
+      username: new FormControl(null, Validators.required),
+      password: new FormControl(null, Validators.required)
     });
+  }
+
+  ngOnDestroy() {
+    if (this.subscription) this.subscription.unsubscribe();
   }
 }
