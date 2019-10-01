@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { GuestGuard } from './auth/guest.guard';
+import { AuthenticatedGuard } from './auth/authenticated.guard';
 
 const routes: Routes = [
   {
@@ -15,7 +16,8 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: './home/home.module#HomeModule'
+    loadChildren: './home/home.module#HomeModule',
+    canActivate: [AuthenticatedGuard]
   }
 ];
 
