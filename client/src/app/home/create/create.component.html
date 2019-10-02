@@ -1,10 +1,68 @@
-<div class="container">
-    <h2>Create a new list</h2>
-    <form [formGroup]="addTaskForm" (ngSubmit)="onSubmit()">
-        <label>Add a Task</label>
-        <input name="task" formControlName="task" type="text" placeholder="new task " required ngModel />
-    </form>
-    <ul *ngIf="listItems">
-        <li *ngFor="let item of listItems">{{item.task}}</li>
-    </ul>    
+<div class="container create-component">
+  <h2>Create a new list</h2>
+  <form [formGroup]="addTaskForm" (ngSubmit)="onSubmit()">
+    <label>Add a Task</label>
+    <input
+      id="task-name"
+      name="task"
+      formControlName="task"
+      type="text"
+      placeholder="new task "
+      required
+      ngModel
+    />
+    <!-- 
+    <div class="categories">
+      <label for="category-fitness">Fitness</label>
+      <input
+        type="checkbox"
+        name="category"
+        value="fitness"
+        id="category-fitness"
+      />
+
+      <label for="category-car-maintanence">Car Maintanence</label>
+      <input
+        type="checkbox"
+        name="category"
+        value="car-maintanence"
+        id="category-car-maintanence"
+      />
+
+      <label for="category-home-repairs">Home Repairs</label>
+      <input
+        type="checkbox"
+        name="category"
+        value="home-repairs"
+        id="category-home-repairs"
+      />
+
+      <label for="category-cleaning">Cleaning</label>
+      <input
+        type="checkbox"
+        name="category"
+        value="cleaning"
+        id="category-cleaning"
+      />
+
+      <label for="category-hygiene">Hygiene</label>
+      <input
+        type="checkbox"
+        name="category"
+        value="hygiene"
+        id="category-hygiene"
+      />
+
+      <label for="category-recreational"> Recreational</label>
+      <input
+        type="checkbox"
+        name="category"
+        value="recreational"
+        id="category-recreational"
+      />
+    </div> -->
+  </form>
+  <ul *ngIf="listItems">
+    <li *ngFor="let item of listItems">{{ item.task }}</li>
+  </ul>
 </div>

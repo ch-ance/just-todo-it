@@ -1,16 +1,20 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CreateComponent } from './create/create.component';
-
+import { ViewListComponent } from './view-list/view-list.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'create',
+    redirectTo: 'view',
     pathMatch: 'full'
   },
   {
     path: 'create',
     component: CreateComponent
+  },
+  {
+    path: 'view',
+    component: ViewListComponent
   }
 ];
 
