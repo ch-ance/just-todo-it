@@ -5,7 +5,7 @@ import { ViewListComponent } from './view-list/view-list.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'view',
+    redirectTo: 'view/1',
     pathMatch: 'full'
   },
   {
@@ -13,7 +13,7 @@ const routes: Routes = [
     component: CreateComponent
   },
   {
-    path: 'view',
+    path: 'view/:id',
     component: ViewListComponent
   }
 ];

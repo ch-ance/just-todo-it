@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-view-list',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-list.component.scss']
 })
 export class ViewListComponent implements OnInit {
+  constructor(private _route: ActivatedRoute) {}
 
-  constructor() { }
+  id = this._route.snapshot.params.id;
 
   ngOnInit() {
+    console.log(this.id);
   }
-
 }
