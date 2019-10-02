@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ListItem } from '../../list-item';
 
 @Component({
   selector: 'app-create',
@@ -6,10 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create.component.scss']
 })
 export class CreateComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
+  addTaskForm: FormGroup;
 
-  ngOnInit() {
+  listItems: ListItem[] = [];
+
+  onSubmit(): void {
+    this.listItems.push(this.addTaskForm.value);
   }
 
+  ngOnInit() {
+    this.addTaskForm = new FormGroup({
+      task: new FormControl(null, Validators.required)
+    });
+  }
 }

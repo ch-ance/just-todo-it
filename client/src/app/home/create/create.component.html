@@ -1,1 +1,10 @@
-<p>create works!</p>
+<div class="container">
+    <h2>Create a new list</h2>
+    <form [formGroup]="addTaskForm" (ngSubmit)="onSubmit()">
+        <label>Add a Task</label>
+        <input name="task" formControlName="task" type="text" placeholder="new task " required ngModel />
+    </form>
+    <ul *ngIf="listItems">
+        <li *ngFor="let item of listItems">{{item.task}}</li>
+    </ul>    
+</div>
