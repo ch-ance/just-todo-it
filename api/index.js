@@ -19,6 +19,19 @@ server.use('/api/auth', authRouter);
 server.get('/', (_req, res) => {
     res.send('Server is up and running');
 });
+
+server.get('/api/lists/:id', (req, res) => {
+    const response = {
+        list: {
+            id: 1231,
+            title: 'The first list!',
+            items: ["Here's something", 'Oh, another thing!'],
+        },
+    };
+    res.send('Got it');
+    res.json(response).status(200);
+});
+
 const port = process.env.PORT || 5000;
 server.listen(port, function() {
     console.log(`\n*** Listening on port ${port} ***\n`);
